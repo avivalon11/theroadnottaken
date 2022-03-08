@@ -9,11 +9,22 @@ const bg = document.querySelector('.bg');
 const story = document.querySelector('.story');
 const yearsLater = document.querySelector('.yearsLater');
 var currentScene = 0;
+var a1 = new Audio("./sounds/1.wav");
+var a2 = new Audio("./sounds/2.wav");
+var a3 = new Audio("./sounds/3.wav");
+var a4 = new Audio("./sounds/4.wav");
+var a5 = new Audio("./sounds/5.wav");
+var a6 = new Audio("./sounds/6.wav");
+var a7 = new Audio("./sounds/7.wav");
+var a8 = new Audio("./sounds/8.wav");
+var a9 = new Audio("./sounds/9.wav");
+var footSteps = new Audio("./sounds/footsteps.wav");
+
 
 function resetManLocation() {
     man.style.transition = 'none';
     man.style.left = `50%`;
-    man.style.bottom = `100px`;
+    man.style.bottom = `20px`;
     setManSize(100);
 }
 
@@ -100,6 +111,7 @@ function plan(forward) {
         showStory();
         hideYearsLater();
         changeMan('man.png');
+        a1.play();
     }
     if(currentScene == 2) {
         setThink('I don\'t know which road I should take.. 🤷‍♂️');
@@ -108,6 +120,7 @@ function plan(forward) {
         changeBG(`TheRoadNotTaken.png`);
         showStory();
         hideYearsLater();
+        a2.play();
     }
     if(currentScene == 3) {
         setThink('I feel so sorry I can\'t travel them both 😔');
@@ -116,6 +129,7 @@ function plan(forward) {
         changeBG(`TheRoadNotTaken.png`);
         showStory();
         hideYearsLater();
+        a3.play();
     }
     if(currentScene == 4) {
         setThink('Lets think which one is better and draw a comparison between them 💡');
@@ -124,39 +138,49 @@ function plan(forward) {
         changeBG(`TheRoadNotTaken.png`);
         showStory();
         hideYearsLater();
+        a4.play();
     }
     if(currentScene == 5) {
-        setThink('Ohh, this is so discouraging, I\'m standing here so long... it\'s so hard to decide. <br /> They are very similar.');
+        setThink('Wow, this is so discouraging, I\'m standing here so long... it\'s so hard to decide. <br /> They are very similar.');
         setTime('10:04');
         resetManLocation();
         changeBG(`TheRoadNotTaken.png`);
         showStory();
         hideYearsLater();
+        a5.play();
     }
     if(currentScene == 6) {
-        setThink('I\'m trying to look down as far as I could, but unfortunately I can\'t see the end because it\'s bend to the undergrowth.')
+        setThink('I\'m trying to look down as far as I can, but unfortunately I can\'t see the end because it\'s bend in the undergrowth.')
         setTime('10:12');
         resetManLocation();
         changeBG(`TheRoadNotTaken.png`);
         showStory();
         hideYearsLater();
+        a6.play();
     }
     if(currentScene == 7) {
-        setThink('Ok, I decided. I will take the other one, although both of the roads as just as fair. The other one is garssy and wanted wear. 🟢🛣️');
+        setThink('Ok, I decided. I will take the other one, although both of the roads as just as fair. The other one is grassy and wanted wear. 🟢🛣️');
         setTime('10:21');
         resetManLocation();
         changeBG(`TheRoadNotTaken.png`);
         showStory();
         hideYearsLater();
+        a7.play();
     }
     if(currentScene == 8) {
         hideThink();
         setTime('10:25');
-        moveMan(280, 240, 2);
+
+        moveMan(350, 300, 2);
         setManSize(50);
+        setTimeout(() => {
+            moveMan(0, 0, 1);
+            setManSize(0);
+        }, 2000);
         changeBG(`TheRoadNotTaken.png`);
         showStory();
         hideYearsLater();
+        footSteps.play();
     }
     if(currentScene == 9) {
         hideThink();
@@ -166,6 +190,7 @@ function plan(forward) {
         setThink('I want to keep the other road for another morning. But I doubt if I can ever do it, because I know how way leads on to way and I can\'t go back in time. 😐');
         showStory();
         hideYearsLater();
+        a8.play();
     }
     if(currentScene == 10) {
         hideThink();
@@ -175,8 +200,13 @@ function plan(forward) {
         resetManLocation();
         moveMan(-40, 250, 2);
         setManSize(50);
+        setTimeout(() => {
+            moveMan(-10, 70, 1);
+            setManSize(0);
+        }, 2000);
         showStory();
         hideYearsLater();
+        footSteps.play();
     }
     if(currentScene == 11) {
         hideStory();
@@ -196,6 +226,7 @@ function plan(forward) {
         setYear(2032);
         setTime('12:58')
         currentScene = 0;
+        a9.play();
     }
 }
 
